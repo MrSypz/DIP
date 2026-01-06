@@ -1,0 +1,18 @@
+import cv2 as cv
+from matplotlib import pyplot as plt
+img = cv.imread('assets/3.1_cat.jpg',0)
+ret1, th1 = cv.threshold(img,127,255,cv.THRESH_BINARY)
+plt.subplot(2,2,1)
+plt.imshow(img, 'gray')
+plt.title("Original Image")
+plt.subplot(2,2,2)
+plt.hist(img.ravel(), 256, [0,255])
+plt.title("Histogram")
+plt.subplot(2,2,3)
+plt.imshow(th1,'gray')
+plt.title('Thresholding (v = 127)')
+plt.subplot(2,2,4)
+plt.hist(th1.ravel(),256,[0,255])
+plt.title("Histogram")
+plt.tight_layout()
+plt.show()
