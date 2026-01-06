@@ -1,0 +1,16 @@
+import cv2
+import matplotlib.pyplot as plt
+img = cv2.imread("assets/3.1_cat.jpg",0)
+plt.figure(num='base', figsize=(8,4))
+plt.subplot(1,2,1)
+plt.title("Original Image")
+plt.imshow(img, cmap='gray', vmin = 0, vmax=255)
+plt.axis('off')
+plt.subplot(1,2,2)
+plt.hist(img.ravel(),256,[0,255])
+plt.title("Histogram")
+plt.xlabel("Bins")
+plt.xlim([-10, 265])
+plt.ylabel('Amounts of Pixels')
+plt.tight_layout()
+plt.show()
